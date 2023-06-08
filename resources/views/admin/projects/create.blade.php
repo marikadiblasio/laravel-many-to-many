@@ -50,6 +50,14 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <p>Select Technologies</p>
+                @foreach ($technologies as $technology)
+                    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$technology->id}}"
+                    {{in_array($technology->id, old('technologies', [])) ? 'checked' : ''}}>
+                    <label class="form-check-label">{{$technology->name}}</label>
+                @endforeach
+            </div>
+            <div class="mb-3">
                 <label for="description" class="form-label">Project description</label>
                 <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
                     cols="30" rows="10">{{ old('description') }}</textarea>

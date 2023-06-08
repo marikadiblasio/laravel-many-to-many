@@ -104,6 +104,11 @@
                             href="{{ route('admin.types.index') }}"><i class="fa-solid me-1 fa-tag"></i><span
                                 class="d-none d-md-inline">Type</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" role="button"
+                            href="{{ route('admin.technologies.index') }}"><i class="fa-solid me-1 fa-tag"></i><span
+                                class="d-none d-md-inline">Technology</span></a>
+                    </li>
                 </ul>
                 <ul class="ms-h120px mt-auto nav ">
                     <li class="nav-item">
@@ -124,7 +129,7 @@
                             </div>
                             <div class="col-12 col-sm-4 col-lg-6 mt-4 order-lg-1">
                                 <h2 class="display-6 fw-medium">BoolFolio
-                                    Project Typology <span>
+                                    Project Technology <span>
                             </div>
                             {{-- <div class="col-12 col-sm-4 col-lg-4 mt-4 mb-4 lh-lg order-lg-2">
                                 <span>Visitatori online</span>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
@@ -29,7 +30,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        $technologies = Technology::all();
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -47,6 +49,11 @@ class ProjectController extends Controller
             $data['image']=asset('storage/' . $image_path);
         }
         $project = Project::create($data);
+
+        if($request->has('technologies')){
+            $project->tecnologies()->attach([1, 2]);
+        }
+
         return redirect()->route('admin.projects.show', $project->slug);
     }
 
