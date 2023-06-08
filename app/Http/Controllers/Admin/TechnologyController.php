@@ -12,7 +12,6 @@ class TechnologyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -26,22 +25,20 @@ class TechnologyController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreTechnologyRequest  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Technology  $technology
-     * @return \Illuminate\Http\Response
      */
     public function show(Technology $technology)
     {
-        //
+        return view('admin.technologies.show', compact('technology'));
     }
 
     /**
@@ -52,7 +49,6 @@ class TechnologyController extends Controller
      *
      * @param  \App\Http\Requests\UpdateTechnologyRequest  $request
      * @param  \App\Models\Technology  $technology
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {

@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Technologies Show</h1>
         <div class="row">
-            @forelse ($projects as $project)
+            @forelse ($technology->projects as $project)
                 <div class="col-12 col-md-4 col-lg-3">
                     <div class="card">
                         <div class="card">
