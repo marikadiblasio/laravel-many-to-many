@@ -35,22 +35,35 @@ deleteSubmitButtons.forEach((button) => {
 
 //EDIT TYPE
 //prendo i bottoni matita
-const pencilTypes = document.querySelectorAll('.pencil-type');
+const pencilEdit = document.querySelectorAll('.pencil-edit');
 //ciclo sui bottoni
-pencilTypes.forEach((pencil)=>{
-    pencilTypes.addEventListener('click', (e)=>{ //al click
+pencilEdit.forEach((pencil)=>{
+    pencil.addEventListener('click', (e)=>{ //al click
         e.preventDefault();
         //prendo il form
-        tdFormEdit = document.getElementById('td-form-edit');
+        const tdFormEdit = document.getElementById('td-form-edit');
         //lo rendo visibile
+        tdFormEdit.classList.remove('d-none');
         tdFormEdit.classList.add('d-table-cell');
         //prendo il nome
+        const tdNameEdit = document.getElementById('td-name-edit');
         //lo rendo invisibile
+        tdNameEdit.classList.remove('d-table-cell');
+        tdNameEdit.classList.add('d-none');
 
         //prendo il bottone submit edit
+        const submitEdit = document.getElementById('submit-edit');
         //all'evento submit
-        //rendo invisibile il form
-        //rendo visibile il nome
+        submitEdit.addEventListener('submit', () =>{
+            //rendo invisibile il form
+            tdFormEdit.classList.remove('d-table-cell');
+            tdFormEdit.classList.add('d-none');
+             //rendo visibile il nome
+            tdNameEdit.classList.remove('d-none');
+            tdNameEdit.classList.add('d-table-cell');
+        });
 
-    })
-})
+
+
+    });
+});

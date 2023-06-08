@@ -89,8 +89,8 @@
             <nav id="ms-sidebar" class="pt-4 text-white d-flex flex-column flex-shrink-0 h-100">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white" role="button" aria-current="page" href="#"><i
-                                class="fa-solid me-1 fa-house"></i><span class="d-none d-md-inline">Home</span></a>
+                        <a class="nav-link text-white" role="button" aria-current="page" href="{{route('admin.dashboard')}}"><i
+                                class="fa-solid me-1 fa-house"></i><span class="d-none d-md-inline">{{ __('Home')}}</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" role="button"
