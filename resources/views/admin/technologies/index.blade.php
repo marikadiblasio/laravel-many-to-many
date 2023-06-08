@@ -59,12 +59,12 @@
         </tbody>
     </table>
 {{-- Form for store --}}
-    <form action="{{ route('admin.types.store') }}" method="POST">
+    <form action="{{ route('admin.technologies.store') }}" method="POST">
         @csrf
         <div class="mb-3 input-group">
             <input type="text" class="input-group-text @error('name') is-invalid @enderror" id="name" name="name"
                 value="{{ old('name') }}" required>
-            <button type="submit" class="btn btn-primary">Add Type</button>
+            <button type="submit" class="btn btn-primary">Add Technology</button>
             @error('name')
                 <div class="alert alert-danger">
                     {{ $message }}

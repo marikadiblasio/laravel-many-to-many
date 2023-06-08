@@ -28,6 +28,7 @@
                         <a class="text-dark-blue" href="{{ route('admin.types.show', $type->slug) }}"><i
                                 class="fa-solid fa-eye me-2"></i></a>
                         <a class="text-dark-blue pencil-type" href="#"><i class="fa-solid fa-pencil me-2"></i></a>
+                        {{-- FORM for DELETE --}}
                         <form class="d-inline-block" action="{{ route('admin.types.destroy', $type->slug) }}"
                             method="POST">
                             @csrf
