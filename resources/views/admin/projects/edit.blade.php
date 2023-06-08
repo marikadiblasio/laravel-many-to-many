@@ -53,8 +53,13 @@
             <div class="mb-3">
                 <p>Select Technologies:</p>
                 @foreach($technologies as $technology)
-                    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$technology->id}}"
-                    {{$project->tecnologies->contains($technology) ? 'checked' : '' }}>
+                    @if ($errors->any())
+                        <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$technology->id}}"
+                        {{in_array($technology->id, old('technologies', [])) ? 'checked' : ''}}>
+                    @else
+                        <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$technology->id}}"
+                        {{$project->technologies->contains($technology) ? 'checked' : '' }}>
+                    @endif
                     <label class="form-check-label">{{$technology->name}}</label>
                 @endforeach
             </div>
