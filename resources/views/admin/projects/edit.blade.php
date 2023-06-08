@@ -41,7 +41,7 @@
                 <select class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type_id">
                     <option value="">Select the type of your project</option>
                     @foreach($types as $type)
-                        <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''}}>{{$type->name}}</option>
+                        <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : '' }}>{{$type->name}}</option>
                     @endforeach
                 </select>
                 @error('type_id')
@@ -49,6 +49,14 @@
                         {{ $message }}
                     </div>
                 @enderror
+            </div>
+            <div class="mb-3">
+                <p>Select Technologies:</p>
+                @foreach($technologies as $technology)
+                    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$technology->id}}"
+                    {{$project->tecnologies->contains($technology) ? 'checked' : '' }}>
+                    <label class="form-check-label">{{$technology->name}}</label>
+                @endforeach
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Project description</label>

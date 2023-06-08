@@ -51,7 +51,7 @@ class ProjectController extends Controller
         $project = Project::create($data);
 
         if($request->has('technologies')){
-            $project->tecnologies()->attach([1, 2]);
+            $project->tecnologies()->attach($request->technologies);
         }
 
         return redirect()->route('admin.projects.show', $project->slug);
@@ -75,7 +75,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -99,6 +100,11 @@ class ProjectController extends Controller
             $data['image']=asset('storage/' . $image_path);
         }
         $project->update($data);
+        if($request->has('technologies')){
+            $project->technologies()->sync($request->technologies);
+        }else{
+            $project->technologies()->sync([]);
+        }
         return redirect()->route('admin.projects.show', $project->slug);
     }
 

@@ -14,12 +14,11 @@
                 <a class="btn btn-primary" href="{{ $project->url }}">View GitHub</a>
                 <p class="card-text">{!! $project->description !!}</p>
             </div>
-            @if($project->technologies &&  count($projectt->technology) > 0)
+            @if($project->technologies)
             <div class="card-body text-danger">
-                ciao
-                {{-- @foreach ($project->technologies as $technology)
-                <span class="badge rounded-pill text-bg-primary">Primary</span>
-                @endforeach --}}
+                 @foreach ($project->technologies as $technology)
+                <span class="badge rounded-pill text-bg-primary">{{$technology->name}}</span>
+                @endforeach
             </div>
             @endif
             <div class="card-body d-flex justify-content-between">
